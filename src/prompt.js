@@ -5,12 +5,12 @@ const prompt = require('prompt-sync')();
 
 
     function promptFunc(rooms) {
-    choice = prompt(`Enter your choice:  `)
+    choice = prompt(`Enter your choice:  `).trim();
 
 
 switch(choice){
     case('1'):
-        roomName = prompt('Enter the room you want to add.  ').toLowerCase();
+        roomName = prompt('Enter the room you want to add.  ').toLowerCase().trim();
         rooms.push(new Room(roomName));
         console.log(`${roomName} has now been added.`)
         console.log(`
@@ -21,7 +21,7 @@ switch(choice){
         break;
     // light toggle
     case('2'):
-        roomName = prompt('Enter the room to toggle light.  ').toLowerCase();
+        roomName = prompt('Enter the room to toggle light.  ').toLowerCase().trim();
         let roomForLight = (rooms.find(room => room.name  === roomName))
         if (roomForLight){
             roomForLight.toggleLight();
@@ -43,12 +43,12 @@ switch(choice){
         }
     break;
     case('3'):
-        roomName = prompt('Enter the room whose temperature you want to change.  ').toLowerCase();
+        roomName = prompt('Enter the room whose temperature you want to change.  ').toLowerCase().trim();
         newTemp = prompt('Enter the new temperature  ');
         let roomToChange = (rooms.find(room => room.name  === roomName))
         if (roomToChange){
             roomToChange.changeTemp(newTemp);
-            console.log(`${roomToChange.name} temperature is now ${roomToChange.temp}.`)
+            console.log(`${roomToChange.name} temperature is now ${roomToChange.temp} °C.`)
             console.log(`
                 
 ----------------------------------------------------

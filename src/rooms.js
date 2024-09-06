@@ -25,7 +25,7 @@ class Room {
     }
 
     getRoom() {
-        return `${this.name}: Temperature: ${this.temp}, Light State: ${this.light_state}`;
+        return `${this.name}: Temperature: ${this.temp} °C, Light State: ${this.light_state}`;
     }
 
     turnOff(){
